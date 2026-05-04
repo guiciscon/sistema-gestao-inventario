@@ -19,7 +19,7 @@ Invoke-RestMethod -Uri http://localhost:3001/products/insertproducts `
   "name": "Teste",
   "description": "",
   "price": 2.00,
-  "stock_quantity": -2
+  "stock_quantity": 2
 }'
 
 **COMANDO PARA RETORNAR TABELA VIA TERMINAL**
