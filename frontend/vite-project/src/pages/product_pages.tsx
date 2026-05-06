@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {get_products} from "../services/product_services";
+import {Link} from "react-router";
 
-export function productPages() {
+export function ProductPages() {
   const [products, setProducts] = useState([]); 
 
   useEffect(() => {
@@ -13,9 +14,13 @@ export function productPages() {
   return (
     <div>
       <h1>Produtos</h1>
+
+      <Link to="/insertproduct">Inserir Produto</Link>
       <ul>
         {products.map((product: any) => (
-          <li key={product.id}>{product.name}</li>
+          <li key={product.id}>
+            <Link to={`/products/${product.id}`}>{product.name}</Link>
+          </li>
         ))}
       </ul>
     </div>
