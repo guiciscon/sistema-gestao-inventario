@@ -10,10 +10,13 @@ export function InsertProduct() {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState<number | "">("");
     const [stock_quantity, setStock] = useState<number | "">("");
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState<"success" | "error" | "">("");
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
+    try{
         await insert_product({
             name,
             description,
@@ -21,7 +24,12 @@ export function InsertProduct() {
             stock_quantity,
         });
         navigate("/products");
+    } catch (error) {
+        console.error(error);
+        setMessage("Erro ao cadastrar produto. Verifique os dados informados.");
+        setMessageType("error");
     };
+};
 
     
     return (
@@ -35,6 +43,12 @@ export function InsertProduct() {
       
 
     </div>
+    {message &&(
+        <div className={'mb-4 rounded px-4 py-2 text-white' + (messageType === "success" ? "bg-green-200" : "bg-red-200")}
+        >
+            {message}
+        </div>
+    )}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-6 max-w-md">
             <input className="border rounded px-3 py-2"
                 type="text"

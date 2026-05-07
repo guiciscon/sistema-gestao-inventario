@@ -32,11 +32,29 @@ export function ProductPagesId() {
   return (
     <Layout>
         <h1 className="text-center text-3xl font-bold text-blue-600">{product.name}</h1>
-        <p>ID: {product.id}</p>
-        <p>Descrição: {product.description}</p>
-        <p>R$ {product.price}</p>
-        <p>Estoque: {product.stock_quantity}</p>
-        <p>Criado em: {new Date(product.created_at).toLocaleDateString()}</p>
+        <p>
+          <span className="font-bold text-blue-600">ID: </span> {product.id}
+        </p>
+        <p>
+          <span className="font-bold text-blue-600">Descrição: </span> {product.description}
+        </p>
+          <div className="flex gap-10">
+            <div>
+              <span className="font-bold text-blue-600">Preço:</span>{" "}R$ {product.price}
+            </div>
+            <div>
+              <span className="font-bold text-blue-600">Estoque:</span>{" "}{product.stock_quantity}
+            </div>
+          </div>
+          <div className="flex gap-10">
+              <div>
+                <span className="font-bold text-blue-600">Criado em: </span> {new Date(product.created_at).toLocaleDateString()}
+              </div>
+              <div>
+                <span className="font-bold text-blue-600">Atualizado em: </span> {new Date(product.last_update).toLocaleDateString()}
+              </div>
+          </div>
+        
 
       <div className="flex gap-4 mt-4 mb-4">
           <Link className="bg-gray-900 hover:bg-indigo-500 text-white font-bold py-1 px-4 rounded" to="/products">Voltar</Link>

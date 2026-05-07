@@ -11,6 +11,8 @@ export function EditProduct(){
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState<number | "">("");
     const [stock_quantity, setStock] = useState<number | "">("");
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState<"success" | "error" | "">("");
 
     useEffect(() => {
         if (!id) return;
@@ -27,7 +29,7 @@ export function EditProduct(){
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!id) return;
-
+    try{
         await edit_product(id, {
             name,
             description,
@@ -35,7 +37,12 @@ export function EditProduct(){
             stock_quantity: Number(stock_quantity),
         });
         navigate(`/products/${id}`);
+    } catch (error) {
+        console.error(error);
+        setMessage("Erro ao atualizar produto. Verifique os dados informados.");
+        setMessageType("error");
     };
+};
 
     
     return (
@@ -44,7 +51,13 @@ export function EditProduct(){
       <h1 className="text-lg font-bold text-blue-600">Editar produto</h1>
 
     </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-6 max-w-md">
+     {message &&(
+        <div className={'mb-4 rounded px-4 py-2 text-white' + (messageType === "success" ? "bg-green-200" : "bg-red-200")}
+        >
+            {message}
+        </div>
+    )}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 max-w-md">
             <label>Nome:</label>
             <input className="border rounded px-3 py-2"
                 type="text"

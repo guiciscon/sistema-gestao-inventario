@@ -14,4 +14,5 @@ model Products {
   price          Decimal
   stock_quantity Int
   created_at     DateTime @default(now())
+  last_update    DateTime @default(now())@updatedAt
 }

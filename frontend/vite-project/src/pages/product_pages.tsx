@@ -7,6 +7,8 @@ import { Layout } from "../components/layout";
 interface Product {
   id: number;
   name: string;
+  price: number;
+  stock_quantity: number;
 }
 
 export function ProductPages() {
@@ -24,12 +26,12 @@ export function ProductPages() {
        <div className="text-center mb-4 mt-4">
                 <Link className="bg-gray-900 hover:bg-emerald-500 text-white font-bold py-1 px-4 rounded" to='/insertproduct'>Inserir produto</Link>
             </div>
-      <ul>
+      <ul className="flex flex-col gap-4">
         {products
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((product: Product) => (
-          <li key={product.id}>
-            <Link to={`/products/${product.id}`}>{product.name}</Link>
+          <li className="bg-gray-100 hover:bg-gray-200 rounded p-4 border-b" key={product.id}>
+            <Link className="block w-full h-full" to={`/products/${product.id}`}>{product.name}</Link>
           </li>
         ))}
       </ul>

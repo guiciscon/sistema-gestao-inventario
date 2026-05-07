@@ -5,4 +5,5 @@ export type Product = {
     price: number,
     stock_quantity: number,
     created_at: string,
+    last_update: string,
 }
