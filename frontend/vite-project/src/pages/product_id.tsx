@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {get_products_id, delete_product} from "../services/product_services";
-import {useParams, Link, useNavigate} from "react-router";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import type {Product} from "../types/product";
+import { Layout } from "../components/layout";
 
 export function ProductPagesId() {
   const navigate = useNavigate();
@@ -29,27 +30,19 @@ export function ProductPagesId() {
   }
 
   return (
-    <div>
-        <h1>{product.name}</h1>
+    <Layout>
+        <h1 className="text-center text-3xl font-bold text-blue-600">{product.name}</h1>
         <p>ID: {product.id}</p>
-        <p>{product.description}</p>
+        <p>Descrição: {product.description}</p>
         <p>R$ {product.price}</p>
         <p>Estoque: {product.stock_quantity}</p>
         <p>Criado em: {new Date(product.created_at).toLocaleDateString()}</p>
 
-      <Link to="/products">
-      <button>
-        Voltar
-      </button></Link>
-      <Link to={`/edit/${product.id}`}>
-        <button>
-          Editar
-        </button>
-      </Link>
-      <button onClick={handleDelete}>
-        Excluir
-      </button>
-      
-    </div>
+      <div className="flex gap-4 mt-4 mb-4">
+          <Link className="bg-gray-900 hover:bg-indigo-500 text-white font-bold py-1 px-4 rounded" to="/products">Voltar</Link>
+          <Link className="bg-gray-900 hover:bg-emerald-500 text-white font-bold py-1 px-4 rounded" to={`/edit/${product.id}`}>Editar</Link>
+          <button className="bg-gray-900 hover:bg-red-700 text-white font-bold py-1 px-4 rounded" onClick={handleDelete}>Excluir</button>
+      </div>
+    </Layout>
   );
 }

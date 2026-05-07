@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {edit_product, get_products_id} from "../services/product_services";
-import {Link, useNavigate, useParams} from "react-router";
+import {Link, useNavigate, useParams} from "react-router-dom";
+import { Layout } from "../components/layout";
 
 export function EditProduct(){
     const {id} = useParams();
@@ -30,44 +31,46 @@ export function EditProduct(){
         await edit_product(id, {
             name,
             description,
-            price,
-            stock_quantity,
+            price: Number(price),
+            stock_quantity: Number(stock_quantity),
         });
         navigate(`/products/${id}`);
     };
 
     
     return (
-    <div>
+    <Layout>
         <div>
-      <h1>Editar produto</h1>
-
-      <Link to="/products">Voltar para a lista de produtos</Link>
+      <h1 className="text-lg font-bold text-blue-600">Editar produto</h1>
 
     </div>
-        <form onSubmit={handleSubmit}>
-            <input
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-6 max-w-md">
+            <label>Nome:</label>
+            <input className="border rounded px-3 py-2"
                 type="text"
                 name="name"
                 placeholder="Nome do produto"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
             />
-            <input
+            <label>Descrição:</label>
+            <input className="border rounded px-3 py-2"
                 type="text"
                 name="description"
                 placeholder="Descrição do produto"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
             />
-            <input
+            <label>Preço:</label>
+            <input className="border rounded px-3 py-2"
                 type="number"
                 name="price"
                 placeholder="Preço do produto"
                 value={price}
                 onChange={(event) => setPrice(Number(event.target.value))}
             />
-            <input
+            <label>Estoque:</label>
+            <input className="border rounded px-3 py-2"
                 type="number"
                 name="stock_quantity"
                 placeholder="Estoque do produto"
@@ -75,13 +78,15 @@ export function EditProduct(){
                 onChange={(event) => setStock(Number(event.target.value))}
             />
 
-            <button type="submit">Atualizar Produto</button>
-            <Link to={`/products/${id}`}>
-                <button type="button">
-                    Cancelar
+            <div className="flex gap-4 mt-4 mb-4">
+                <button type="submit" className="bg-gray-900 hover:bg-emerald-500 text-white font-bold py-1 px-4 rounded">
+                    Atualizar produto
                 </button>
-            </Link>
+                <Link className="bg-gray-900 hover:bg-red-700 text-white font-bold py-1 px-4 rounded" to={`/products/${id}`}>
+                    Cancelar
+                </Link>
+            </div>
         </form>
-    </div>
+    </Layout>
     );
 }
