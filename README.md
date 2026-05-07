@@ -32,6 +32,7 @@ npm run dev
 docker compose up --build
 
 **@@@ COMANDO BACKEND (USAR NO TERMINAL) @@@**
+
 **SCRIPT PARA ADICIONAR PRODUTAS NA LISTA (VIA TERMINAL)**
 
 Invoke-RestMethod -Uri http://localhost:3001/products/insertproducts `
