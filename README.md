@@ -44,34 +44,18 @@ DELETE - /delete/:id
 - Zod: Validação e tipagem automática, ajuda a prevenir erros e bus no desenvolvimento.
 - Tailwind CSS: utilizado para agilizar a estilização, suas "formulas" prontas ajudaram na estilização e adiantaram o processo.
 
-- ORM/Querry Builder: Supostamente mais facil de usar, utiliza menos códigos manuais e gera mais automáticamente (levando 
-em consideração meu tempo disponivel entre trabalho, estudos e tarefas de casa parecia mais adquado)
-- API: Express foi o que eu aprendi no curso de NodeJS do Matheus Battisti e novamente, levando em consideração o tempo que 
-eu teria disponível pareceu mais adequado pois ja teria outras ferramentas para aprender.
-- Validação: ZOD, levei em consideração que a tipagem é automatica e ajuda a previnir erros, como esse é basicamente o 
-primeiro projeto que faço imaginei que teria dificuldade nisso porém foi uma das partes mais tranquilas.
-- Estilização: Tailwind CSS por não precisar escrever o CSS manualmente e ter uma boa quantidade de padrões e "formulas"
-prontas agilizou bastante o processo (e de novo, nunca tinha feito isso então foi basicamente a primeira vez que fiz um
-fronend na minha vida)
-
 
 **# COMANDOS PARA UTILIZAR NO BACKEND VIA TERMINAL #**
 
-**ABRIR TABELA NO NAVEGADOR (ENQUANTO NAO EXISTE FRONTEND É BOM)**
+**ABRIR TABELA NO NAVEGADOR**
 
 - npx prisma studio 
-
-**RODA O SISTEMA E ATUALIZA AUTOMATICAMENTE (USAR NO /backend E /frontent/vite-project)**
-
-- npm run dev 
 
 **INICIAR DOCKER**
 
 - docker compose up --build
 
-**@@@ COMANDO BACKEND (USAR NO TERMINAL) @@@**
-
-**SCRIPT PARA ADICIONAR PRODUTAS NA LISTA (VIA TERMINAL)**
+**SCRIPT PARA ADICIONAR PRODUTAS NA LISTA**
 
 Invoke-RestMethod -Uri http://localhost:3000/insertproducts `
 -Method POST `
@@ -83,11 +67,11 @@ Invoke-RestMethod -Uri http://localhost:3000/insertproducts `
   "stock_quantity": 0
 }'
 
-**COMANDO PARA RETORNAR TABELA VIA TERMINAL**
+**COMANDO PARA RETORNAR TABELA**
 
 - Invoke-RestMethod -Uri http://localhost:3000/ -Method GET
 
-**COMANDO PARA RETORNAR ITEM VIA TERMINAL (SUBSTITUIR ASTERISTICOS PELO ID DO ITEM)**
+**COMANDO PARA RETORNAR ITEM (SUBSTITUIR ASTERISTICOS PELO ID DO ITEM)**
 
 - Invoke-RestMethod -Uri http://localhost:3000/** -Method GET
 
