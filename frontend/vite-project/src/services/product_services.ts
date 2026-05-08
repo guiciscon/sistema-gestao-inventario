@@ -17,7 +17,7 @@ export async function insert_product(data: any) {
 }
 
 export async function get_products() {
-  const response = await fetch(`${API_URL}/products`);
+  const response = await fetch(`${API_URL}/`);
 
   if (!response.ok) {
     throw new Error("Erro ao buscar produtos");
@@ -27,7 +27,7 @@ export async function get_products() {
 }
 
 export async function get_products_id(id: string) {
-  const response = await fetch(`${API_URL}/products/${id}`);
+  const response = await fetch(`${API_URL}/${id}`);
 
   if (!response.ok) {
     throw new Error("Erro ao buscar produto");

@@ -1,34 +1,32 @@
-version: "3.8"
-
 services:
-  postgres:
+  db:
     image: postgres:15
-    container_name: inventory_postgres
+    container_name: sistema_gestao_db
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: inventory_db
+      POSTGRES_DB: sistema_gestao_inventario
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   backend:
     build: ./backend
-    container_name: inventory_backend
+    container_name: sistema_gestao_backend
     restart: always
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/inventory_db
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/sistema_gestao_inventario
     depends_on:
-      - postgres
+      - db
     command: sh -c "npx prisma db push && npm run dev"
 
   frontend:
     build: ./frontend/vite-project
-    container_name: inventory_frontend
+    container_name: sistema_gestao_frontend
     restart: always
     ports:
       - "5173:80"
@@ -36,4 +34,4 @@ services:
       - backend
 
 volumes:
-  postgres_data:
+  pgdata:

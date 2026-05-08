@@ -16,9 +16,11 @@ export function ProductPages() {
 
   useEffect(() => {
     get_products()
-    .then((Data) => setProducts(Data))
+      .then((data) => {
+        setProducts(Array.isArray(data) ? data : []);
+      })
     .catch((error) => console.error(error));
-  }, []);
+}, []);
 
   return (
     <Layout>
@@ -27,9 +29,9 @@ export function ProductPages() {
                 <Link className="bg-gray-900 hover:bg-emerald-500 text-white font-bold py-1 px-4 rounded" to='/insertproduct'>Inserir produto</Link>
             </div>
       <ul className="flex flex-col gap-4">
-        {products
-        .sort((a, b) => a.name.localeCompare(b.name))
-        .map((product: Product) => (
+        {products?.slice().sort((a, b) =>
+            a.name.localeCompare(b.name)
+            ).map((product) => (
           <li className="bg-gray-100 hover:bg-gray-200 rounded p-4 border-b" key={product.id}>
             <Link className="block w-full h-full" to={`/products/${product.id}`}>{product.name}</Link>
           </li>
