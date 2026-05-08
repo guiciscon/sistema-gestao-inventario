@@ -22,7 +22,7 @@
 
 *REQUISITOS PARA RODAR O PROJETO*
 
-Docker instalado e funcionando 
+- Docker instalado e funcionando 
 
   **COMO RODAR**
   - Na raiz do projeto execute: docker compose up --build
@@ -38,7 +38,7 @@ POST - /insertproduct
 PUT - /edit/:id
 DELETE - /delete/:id
 
-*DECISÔES TÉCNICAS*
+*DECISÕES TÉCNICAS*
 - Prisma: utilizado como ORM para facilitar a comunicação com o banco de dados e melhorar a produtividade no desenvolvimento, por gerar códigos automaticamente pareceu ideal para a ocasião (pouco tempo pessoal disponível).
 - React: utilizado parar criar uma interface dinâmica e componentizada, além de eu também ter um breve conhecimento sobre.
 - Zod: Validação e tipagem automática, ajuda a prevenir erros e bus no desenvolvimento.
@@ -75,7 +75,7 @@ Invoke-RestMethod -Uri http://localhost:3000/insertproducts `
 
 - Invoke-RestMethod -Uri http://localhost:3000/** -Method GET
 
-**COMANDO PARA ATUALIZAR ITEM (SUBSTITUIR ASTERISTICO PELO ID DO ITEM)**
+**COMANDO PARA ATUALIZAR ITEM (SUBSTITUIR ASTERISTICOS PELO ID DO ITEM)**
 
 Invoke-RestMethod -Uri http://localhost:3000/edit/** `
 -Method PUT `
@@ -87,6 +87,6 @@ Invoke-RestMethod -Uri http://localhost:3000/edit/** `
   "stock_quantity": 6
 }'
 
-**COMANDO PARA DELETAR ITEM (SUBSTITUIR ASTERISTICO PELO ID DO ITEM)**
+**COMANDO PARA DELETAR ITEM (SUBSTITUIR ASTERISTICOS PELO ID DO ITEM)**
 
 - Invoke-RestMethod -Uri http://localhost:3000/delete/** -Method DELETE
