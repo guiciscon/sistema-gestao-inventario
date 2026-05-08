@@ -34,7 +34,7 @@ docker compose up --build
 **@@@ COMANDO BACKEND (USAR NO TERMINAL) @@@**
 **SCRIPT PARA ADICIONAR PRODUTAS NA LISTA (VIA TERMINAL)**
 
-Invoke-RestMethod -Uri http://localhost:3001/products/insertproducts `
+Invoke-RestMethod -Uri http://localhost:3000/products/insertproducts `
 -Method POST `
 -Headers @{ "Content-Type" = "application/json" } `
 -Body '{
