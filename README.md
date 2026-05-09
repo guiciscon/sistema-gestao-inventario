@@ -1,4 +1,6 @@
-# sistema-gestao-inventario
+# sistema-gestao-inventario 
+
+Aplicação fullstack para gerenciamento de produtos em estoque. O sistema possui CRUD completo de produtos, validação de dados com Zod, execução via Docker, React no frontend, Node.js e TypeScript no backend, além de Prisma e PostgreSQL para persistência dos dados.
 
 *TECNOLOGIAS UTILIZADAS*
 - Node.js
@@ -32,16 +34,21 @@ Docker instalado e funcionando
 
 
 *ROTAS*
-GET - /products
+
+GET - /
+
 GET (apenas um produto) - /products/:id
-POST - /insertproduct
+
+POST - /insertproducts
+
 PUT - /edit/:id
+
 DELETE - /delete/:id
 
-*DECISÔES TÉCNICAS*
+*DECISÕES TÉCNICAS*
 - Prisma: utilizado como ORM para facilitar a comunicação com o banco de dados e melhorar a produtividade no desenvolvimento, por gerar códigos automaticamente pareceu ideal para a ocasião (pouco tempo pessoal disponível).
-- React: utilizado parar criar uma interface dinâmica e componentizada, além de eu também ter um breve conhecimento sobre.
-- Zod: Validação e tipagem automática, ajuda a prevenir erros e bus no desenvolvimento.
+- React: utilizado para criar uma interface dinâmica e componentizada, além de eu também ter um breve conhecimento sobre.
+- Zod: Validação e tipagem automática, ajuda a prevenir erros e bugs no desenvolvimento.
 - Tailwind CSS: utilizado para agilizar a estilização, suas "formulas" prontas ajudaram na estilização e adiantaram o processo.
 
 
@@ -51,11 +58,7 @@ DELETE - /delete/:id
 
 - npx prisma studio 
 
-**INICIAR DOCKER**
-
-- docker compose up --build
-
-**SCRIPT PARA ADICIONAR PRODUTAS NA LISTA**
+**COMANDO PARA ADICIONAR PRODUTAS NA LISTA**
 
 Invoke-RestMethod -Uri http://localhost:3000/insertproducts `
 -Method POST `
@@ -90,3 +93,4 @@ Invoke-RestMethod -Uri http://localhost:3000/edit/** `
 **COMANDO PARA DELETAR ITEM (SUBSTITUIR ASTERISTICO PELO ID DO ITEM)**
 
 - Invoke-RestMethod -Uri http://localhost:3000/delete/** -Method DELETE
+ 
