@@ -20,7 +20,6 @@ Aplicação fullstack para gerenciamento de produtos em estoque. O sistema possu
 - Visualização de produto por ID
 - Edição de produtos
 - Exclusão de produtos
-- Validação dos dados de entrada (cadastro e edição)
 
 *REQUISITOS PARA RODAR O PROJETO*
 

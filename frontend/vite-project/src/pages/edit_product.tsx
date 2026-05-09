@@ -77,6 +77,7 @@ export function EditProduct(){
             <label>Preço:</label>
             <input className="border rounded px-3 py-2"
                 type="number"
+                step="0.01"
                 name="price"
                 placeholder="Preço do produto"
                 value={price}

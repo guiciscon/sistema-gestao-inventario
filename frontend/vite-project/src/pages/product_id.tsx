@@ -40,7 +40,8 @@ export function ProductPagesId() {
         </p>
           <div className="flex gap-10">
             <div>
-              <span className="font-bold text-blue-600">Preço:</span>{" "}R$ {product.price}
+              <span className="font-bold text-blue-600">Preço:</span>{" "}{Number(product.price).toLocaleString("pt-BR", {
+              style: "currency", currency: "BRL",})}
             </div>
             <div>
               <span className="font-bold text-blue-600">Estoque:</span>{" "}{product.stock_quantity}
