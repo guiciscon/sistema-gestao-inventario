@@ -24,7 +24,7 @@ Aplicação fullstack para gerenciamento de produtos em estoque. O sistema possu
 
 *REQUISITOS PARA RODAR O PROJETO*
 
-Docker instalado e funcionando 
+- Docker instalado e funcionando 
 
   **COMO RODAR**
   - Na raiz do projeto execute: docker compose up --build
@@ -78,7 +78,7 @@ Invoke-RestMethod -Uri http://localhost:3000/insertproducts `
 
 - Invoke-RestMethod -Uri http://localhost:3000/** -Method GET
 
-**COMANDO PARA ATUALIZAR ITEM (SUBSTITUIR ASTERISTICO PELO ID DO ITEM)**
+**COMANDO PARA ATUALIZAR ITEM (SUBSTITUIR ASTERISTICOS PELO ID DO ITEM)**
 
 Invoke-RestMethod -Uri http://localhost:3000/edit/** `
 -Method PUT `
@@ -90,7 +90,7 @@ Invoke-RestMethod -Uri http://localhost:3000/edit/** `
   "stock_quantity": 6
 }'
 
-**COMANDO PARA DELETAR ITEM (SUBSTITUIR ASTERISTICO PELO ID DO ITEM)**
+**COMANDO PARA DELETAR ITEM (SUBSTITUIR ASTERISTICOS PELO ID DO ITEM)**
 
 - Invoke-RestMethod -Uri http://localhost:3000/delete/** -Method DELETE
  
